@@ -1,0 +1,45 @@
+{
+  "name": "quorum",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Turn a meeting transcript into decisions, owners, and a follow-up. Every item cites the line it came from.",
+  "author": "Akhilendra Singh <akhisingh2211@gmail.com>",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "eval": "tsx scripts/eval.ts",
+    "eval:live": "tsx scripts/eval-live.ts",
+    "e2e": "playwright test"
+  },
+  "dependencies": {
+    "@ai-sdk/anthropic": "^4.0.108",
+    "@ai-sdk/openai": "^4.0.123",
+    "ai": "^7.0.181",
+    "mammoth": "^1.13.0",
+    "next": "^16.4.6",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.14.1",
+    "@playwright/test": "^1.65.1",
+    "@types/node": "^22.19.1",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "eslint": "^9.39.1",
+    "eslint-config-next": "^16.4.6",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3",
+    "vitest": "^5.1.2"
+  }
+}
