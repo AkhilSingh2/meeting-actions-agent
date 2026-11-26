@@ -6,6 +6,8 @@ Quorum is a local-first meeting agent for people who leave a call with a transcr
 
 **Demo mode is the default.** It needs no API key. A deterministic heuristic reads the transcript in the browser’s server, and four sample meetings are seeded on first open. A live model is optional.
 
+**Live demo:** [akhilsingh2.github.io/meeting-actions-agent](https://akhilsingh2.github.io/meeting-actions-agent/). The hosted copy is a static build in demo mode with sample transcripts: the parser and heuristic extractor run in your browser, and exports are dry runs. Word uploads and live models need a local run. Build it with `STATIC_DEMO=true` (see `lib/demo`).
+
 ![Quorum review board on a desktop, with the transcript beside cited action items](docs/media/review-desktop.png)
 
 The home screen is the extractor. Sample records open a finished board, or you can load one back into the editor and run it again.

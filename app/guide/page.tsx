@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { meetingHref } from "@/lib/demo/static-demo";
 
 export const metadata: Metadata = { title: "Guide" };
 
@@ -67,7 +68,7 @@ export default function GuidePage() {
           to drop the product tour” never becomes an action: the decision pattern wins when nobody is being assigned.
         </p>
         <p>
-          <Link href="/meetings/northline-critique">Open the Northline record</Link> to see the same sentence in the
+          <Link href={meetingHref("northline-critique")}>Open the Northline record</Link> to see the same sentence in the
           board.
         </p>
       </section>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Fraunces, IBM_Plex_Mono, Outfit } from "next/font/google";
+import { DemoNote } from "@/components/demo/DemoNote";
 import { AppShell } from "@/components/shell/AppShell";
 import { MeetingProvider } from "@/components/providers/MeetingProvider";
 import { tokenStyle } from "@/lib/design/tokens";
@@ -27,6 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <MeetingProvider>
           <AppShell>{children}</AppShell>
+          <DemoNote />
         </MeetingProvider>
       </body>
     </html>

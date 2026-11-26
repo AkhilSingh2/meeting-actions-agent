@@ -6,6 +6,7 @@ import { useMeetings } from "@/components/providers/MeetingProvider";
 import { formatDisplayDate, formatLongDate } from "@/lib/dates";
 import { isOverdue, openActions, statusLabel } from "@/lib/meeting";
 import type { ActionStatus } from "@/lib/types";
+import { meetingHref } from "@/lib/demo/static-demo";
 
 type Filter = "open" | "in_progress" | "overdue" | "done" | "all";
 
@@ -109,7 +110,7 @@ export function HistoryView() {
               </label>
               <div>
                 <h3>
-                  <Link href={`/meetings/${meeting.id}#action-${action.id}`}>{action.text}</Link>
+                  <Link href={meetingHref(meeting.id, `action-${action.id}`)}>{action.text}</Link>
                 </h3>
                 <p>
                   {action.owner ?? "Unassigned"}
@@ -117,7 +118,7 @@ export function HistoryView() {
                   {isOverdue(action.dueDate, action.status, today) ? " · Overdue" : ""}
                 </p>
               </div>
-              <Link className="q-btn q-btn--ghost" href={`/meetings/${meeting.id}`}>
+              <Link className="q-btn q-btn--ghost" href={meetingHref(meeting.id)}>
                 Open {meeting.title}
               </Link>
             </article>
@@ -129,7 +130,7 @@ export function HistoryView() {
         {meetings.map((meeting) => {
           const open = openActions([meeting]).length;
           return (
-            <Link key={meeting.id} className="q-card q-meeting" href={`/meetings/${meeting.id}`}>
+            <Link key={meeting.id} className="q-card q-meeting" href={meetingHref(meeting.id)}>
               <div>
                 <span className="q-index">{formatDisplayDate(meeting.date)}</span>
                 <h3>{meeting.title}</h3>

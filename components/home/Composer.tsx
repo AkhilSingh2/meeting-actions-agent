@@ -7,6 +7,7 @@ import { useMeetings } from "@/components/providers/MeetingProvider";
 import { todayISO } from "@/lib/dates";
 import { sampleMeta } from "@/lib/samples/transcripts";
 import type { EngineRequest, Meeting } from "@/lib/types";
+import { meetingHref } from "@/lib/demo/static-demo";
 
 type Status = {
   demoMode: boolean;
@@ -58,7 +59,7 @@ export function Composer() {
       saveMeeting(payload.meeting);
       const count = payload.meeting.outcome.actions.length;
       setMessage(`Record ready. ${count} action ${count === 1 ? "item" : "items"}.`);
-      router.push(`/meetings/${payload.meeting.id}`);
+      router.push(meetingHref(payload.meeting.id));
     } catch (caught) {
       setError(caught instanceof Error ? caught.message : "Extraction failed.");
       setMessage("");
@@ -218,7 +219,7 @@ export function Composer() {
               <h2>{sample.title}</h2>
               <p>{sample.blurb}</p>
               <div className="q-row">
-                <Link className="q-btn q-btn--ghost" href={`/meetings/${sample.id}`}>
+                <Link className="q-btn q-btn--ghost" href={meetingHref(sample.id)}>
                   Open {sample.title}
                 </Link>
                 <button
